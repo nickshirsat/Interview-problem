@@ -2,6 +2,6 @@ package com.sb.demo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrderRepo extends JpaRepository<Order,Integer>{
+public interface OrderRepo extends JpaRepository<Order, Integer>{
 
 }

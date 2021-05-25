@@ -1,34 +1,21 @@
 package com.sb.demo;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class OrderController {
 	
 	@Autowired
-	OrderRepo oRepo;
+	OrderRepo repo;
 	
-	@PostMapping("/saveorders")
-	@ResponseBody
-	public String SaveOrders(@ModelAttribute("order") Order o) {
-		oRepo.save(o);
-		return o.toString();
+	@PostMapping("/save-order")
+	public void saveOrder(@ModelAttribute(name = "Order") Order order) {
+		repo.save(order);
+		System.out.println("Data saved!");
+		System.out.println(order);
 	}
-	
-	@GetMapping("/getorder/{order_id}")
-	@ResponseBody
-	public Optional<Order> getOrder(@PathVariable Integer order_id) {
-		return oRepo.findById(order_id);
-	}
-	
-
 }

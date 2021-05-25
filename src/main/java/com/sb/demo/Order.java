@@ -5,27 +5,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="order")
-
+@Table(name = "orders")
 public class Order {
 	@Id
-	Integer order_id;
-	String order_desc;
-	String order_date;
+	Integer id;
+	String description, order_date;
 	
-	public Order() {}
-	
-	public Integer getOrder_id() {
-		return order_id;
+	public Integer getId() {
+		return id;
 	}
-	public void setOrder_id(Integer order_id) {
-		this.order_id = order_id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public String getOrder_desc() {
-		return order_desc;
+	public String getDescription() {
+		return description;
 	}
-	public void setOrder_desc(String order_desc) {
-		this.order_desc = order_desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getOrder_date() {
 		return order_date;
@@ -35,7 +31,6 @@ public class Order {
 	}
 	@Override
 	public String toString() {
-		return "Order [order_id=" + order_id + ", order_desc=" + order_desc + ", order_date=" + order_date + "]";
+		return "Order [id=" + id + ", description=" + description + ", order_date=" + order_date + "]";
 	}
-	
 }
