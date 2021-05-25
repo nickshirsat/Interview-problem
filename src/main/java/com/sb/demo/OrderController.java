@@ -26,8 +26,13 @@ public class OrderController {
 	
 	@GetMapping("get-order/{id}")
 	public String getOrder(@PathVariable Integer id) {
-		Optional<Order> order = repo.findById(id);
 		System.out.println(id);
-		return order.toString();
+		if(id.equals(0)) {
+			List<Order> order = repo.findAll();
+			return order.toString();
+		} else {			
+			Optional<Order> order = repo.findById(id);
+			return order.toString();
+		}
 	}
 }
